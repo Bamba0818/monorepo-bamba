@@ -2,7 +2,7 @@ import type { RequestHandler } from "express";
 import oeuvreRepository from "./oeuvreRepository";
 
 // GET /api/oeuvres
-const browse: RequestHandler = async (req, res, next) => {
+export const browse: RequestHandler = async (req, res, next) => {
   try {
     const oeuvres = await oeuvreRepository.findAll();
     res.json(oeuvres);
@@ -12,22 +12,22 @@ const browse: RequestHandler = async (req, res, next) => {
 };
 
 // GET /api/oeuvres/:id
-const read: RequestHandler = async (req, res, next) => {
+export const read: RequestHandler = async (req, res, next) => {
   try {
-    const { id } = req.params;
-    const oeuvre = await oeuvreRepository.findById(Number(id));
+    const id = Number(req.params.id);
+    const oeuvre = await oeuvreRepository.findById(id);
     if (!oeuvre) {
       res.sendStatus(404);
-    } else {
-      res.json(oeuvre);
+      return;
     }
+    res.json(oeuvre);
   } catch (err) {
     next(err);
   }
 };
 
 // POST /api/oeuvres
-const add: RequestHandler = async (req, res, next) => {
+export const add: RequestHandler = async (req, res, next) => {
   try {
     const { titre, auteur, ville } = req.body;
     const insertId = await oeuvreRepository.create(titre, auteur, ville);
@@ -38,39 +38,37 @@ const add: RequestHandler = async (req, res, next) => {
 };
 
 // PUT /api/oeuvres/:id
-const edit: RequestHandler = async (req, res, next) => {
+export const edit: RequestHandler = async (req, res, next) => {
   try {
-    const { id } = req.params;
+    const id = Number(req.params.id);
     const { titre, auteur, ville } = req.body;
     const affectedRows = await oeuvreRepository.update(
-      Number(id),
+      id,
       titre,
       auteur,
       ville,
     );
     if (affectedRows === 0) {
       res.sendStatus(404);
-    } else {
-      res.json({ message: "Oeuvre mise à jour" });
+      return;
     }
+    res.sendStatus(204); // Pas de contenu mais succès
   } catch (err) {
     next(err);
   }
 };
 
-// DELETE /api/oeuvres/:id
-const destroy: RequestHandler = async (req, res, next) => {
+// DELETE /api/oeuvres/:id (suppression logique)
+export const destroy: RequestHandler = async (req, res, next) => {
   try {
-    const { id } = req.params;
-    const affectedRows = await oeuvreRepository.delete(Number(id));
+    const id = Number(req.params.id);
+    const affectedRows = await oeuvreRepository.delete(id);
     if (affectedRows === 0) {
       res.sendStatus(404);
-    } else {
-      res.status(200).json({ message: "Oeuvre supprimée" });
+      return;
     }
+    res.sendStatus(204);
   } catch (err) {
     next(err);
   }
 };
-
-export default { browse, read, add, edit, destroy };

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import api from "../../services/api";
 import "./OeuvresList.css";
 
@@ -12,6 +12,7 @@ type Oeuvre = {
 
 export default function OeuvresList() {
   const [oeuvres, setOeuvres] = useState<Oeuvre[]>([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     api.get("/oeuvres").then((res) => {
@@ -19,10 +20,21 @@ export default function OeuvresList() {
     });
   }, []);
 
+  const handleDelete = async (id: number) => {
+    try {
+      await api.delete(`/oeuvres/${id}`);
+      setOeuvres((prev) => prev.filter((o) => o.id !== id));
+    } catch (err) {
+      console.error("Erreur lors de la suppression", err);
+    }
+  };
+
   return (
     <main className="oeuvres-list">
       <h1>Liste des œuvres</h1>
-      <Link to="/oeuvres/new">Ajouter une œuvre</Link>
+      <button type="button" onClick={() => navigate("/oeuvres/new")}>
+        Ajouter une œuvre
+      </button>
       <table>
         <thead>
           <tr>
@@ -39,9 +51,15 @@ export default function OeuvresList() {
               <td>{oeuvre.auteur}</td>
               <td>{oeuvre.ville}</td>
               <td>
-                <Link to={`/oeuvres/${oeuvre.id}`}>
-                  <button type="button">Modifier / Supprimer</button>
-                </Link>
+                <button
+                  type="button"
+                  onClick={() => navigate(`/oeuvres/${oeuvre.id}`)}
+                >
+                  Modifier
+                </button>
+                <button type="button" onClick={() => handleDelete(oeuvre.id)}>
+                  Supprimer
+                </button>
               </td>
             </tr>
           ))}
