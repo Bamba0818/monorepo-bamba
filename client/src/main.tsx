@@ -18,6 +18,7 @@ const router = createBrowserRouter([
       { path: "oeuvres", element: <OeuvresList /> },
       { path: "oeuvres/new", element: <OeuvreForm /> },
       { path: "oeuvres/:id", element: <OeuvreDetail /> },
+      { path: "oeuvres/:id/edit", element: <OeuvreForm /> },
       { path: "*", element: <div>Page non trouvée</div> },
     ],
   },

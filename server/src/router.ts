@@ -1,8 +1,7 @@
 import express from "express";
-const router = express.Router();
+import * as oeuvreActions from "./modules/oeuvre/oeuvreActions";
 
-// 🧩 Import des routes œuvre
-import oeuvreActions from "./modules/oeuvre/oeuvreActions";
+const router = express.Router();
 
 router.get("/api/oeuvres", oeuvreActions.browse);
 router.get("/api/oeuvres/:id", oeuvreActions.read);

@@ -1,38 +1,40 @@
-.detail-container {
-  max-width: 600px;
-  margin: 2rem auto;
-  background-color: #fdf6e3;
+.oeuvre-detail {
   padding: 2rem;
-  border-radius: 8px;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+  background-color: #fef6e5;
+  min-height: 100vh;
+  color: #25445b;
+  font-family: sans-serif;
 }
 
-.detail-container h2 {
-  color: #0d47a1;
+.oeuvre-detail h1 {
+  font-size: 2rem;
   margin-bottom: 1rem;
 }
 
-.detail-container p {
-  margin-bottom: 1rem;
-  font-size: 1rem;
+.oeuvre-detail p {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
 }
 
-.detail-buttons {
-  display: flex;
-  gap: 1rem;
-  margin-top: 1.5rem;
-}
-
-.detail-buttons button {
+.oeuvre-detail button {
   padding: 0.5rem 1rem;
-  background-color: #263238;
-  color: #fff;
+  font-size: 1rem;
+  background-color: #25445b;
+  color: white;
   border: none;
   border-radius: 6px;
   cursor: pointer;
-  font-weight: bold;
+  margin-right: 1rem;
+  margin-top: 1rem;
+  transition: background-color 0.2s ease;
 }
 
-.detail-buttons button:hover {
-  background-color: #37474f;
+.oeuvre-detail button:hover {
+  background-color: #1a3342;
+}
+
+.oeuvre-detail footer {
+  margin-top: 3rem;
+  font-size: 0.9rem;
+  color: #888;
 }
