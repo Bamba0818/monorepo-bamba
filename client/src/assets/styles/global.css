@@ -1,0 +1,21 @@
+body {
+  margin: 0;
+  font-family: "Arial", sans-serif;
+  background-color: rgba(254, 246, 229, 1);
+  color: rgba(37, 68, 91, 1);
+}
+a {
+  color: rgba(37, 68, 91, 1);
+  text-decoration: none;
+}
+button {
+  background-color: rgba(37, 68, 91, 1);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+button:hover {
+  opacity: 0.9;
+}

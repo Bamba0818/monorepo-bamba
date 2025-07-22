@@ -1,0 +1,21 @@
+.home {
+  padding: 2rem;
+  text-align: center;
+}
+
+.cheikh-image {
+  max-width: 400px;
+  height: auto;
+  margin: 1rem auto;
+  display: block;
+}
+
+.page-title {
+  font-size: 1.5rem;
+  color: rgba(37, 68, 91, 1);
+}
+
+.dates {
+  font-weight: bold;
+  margin-top: 1rem;
+}
