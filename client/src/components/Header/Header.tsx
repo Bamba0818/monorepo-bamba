@@ -5,7 +5,7 @@ export default function Header() {
   return (
     <header className="header">
       <div className="header__logo">
-        <img src="client/public/logo.png" alt="Logo Khassida" />
+        <img src="/logo.png" alt="Logo Khassida" />
       </div>
       <nav className="header__nav">
         <Link to="/" className="header__link">
