@@ -1,0 +1,38 @@
+.table-container {
+  margin-top: 2rem;
+  width: 100%;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th,
+.table td {
+  border: 2px solid #3165a1;
+  padding: 0.75rem;
+  text-align: left;
+}
+
+.table th {
+  background-color: #f7eec7;
+}
+
+.table td:last-child {
+  text-align: center;
+}
+
+button {
+  margin: 0 4px;
+  padding: 0.3rem 0.8rem;
+  border: none;
+  background-color: #263238;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #37474f;
+}

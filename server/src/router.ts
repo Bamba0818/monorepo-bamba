@@ -1,18 +1,13 @@
 import express from "express";
-
 const router = express.Router();
 
-/* ************************************************************************* */
-// Define Your API Routes Here
-/* ************************************************************************* */
+// 🧩 Import des routes œuvre
+import oeuvreActions from "./modules/oeuvre/oeuvreActions";
 
-// Define item-related routes
-import itemActions from "./modules/item/itemActions";
-
-router.get("/api/items", itemActions.browse);
-router.get("/api/items/:id", itemActions.read);
-router.post("/api/items", itemActions.add);
-
-/* ************************************************************************* */
+router.get("/api/oeuvres", oeuvreActions.browse);
+router.get("/api/oeuvres/:id", oeuvreActions.read);
+router.post("/api/oeuvres", oeuvreActions.add);
+router.put("/api/oeuvres/:id", oeuvreActions.edit);
+router.delete("/api/oeuvres/:id", oeuvreActions.destroy);
 
 export default router;

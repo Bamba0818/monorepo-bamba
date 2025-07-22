@@ -1,21 +1,19 @@
-create table user (
-  id int unsigned primary key auto_increment not null,
-  email varchar(255) not null unique,
-  password varchar(255) not null
+CREATE DATABASE IF NOT EXISTS oeuvres_bamba CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE oeuvres_bamba;
+
+
+DROP TABLE IF EXISTS oeuvre;
+
+
+CREATE TABLE oeuvre (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  titre VARCHAR(255) NOT NULL,
+  auteur VARCHAR(255) NOT NULL,
+  ville VARCHAR(255) NOT NULL
 );
 
-create table item (
-  id int unsigned primary key auto_increment not null,
-  title varchar(255) not null,
-  user_id int unsigned not null,
-  foreign key(user_id) references user(id)
-);
 
-insert into user(id, email, password)
-values
-  (1, "jdoe@mail.com", "123456");
-
-insert into item(id, title, user_id)
-values
-  (1, "Stuff", 1),
-  (2, "Doodads", 1);
+INSERT INTO oeuvre (titre, auteur, ville)
+VALUES
+  ('Khassida Touba', 'Cheikh Ahmadou Bamba', 'Touba'),
+  ('Poème sur la Miséricorde', 'Serigne Fallou', 'Diourbel');
