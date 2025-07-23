@@ -9,24 +9,23 @@ export default function OeuvreForm() {
   const isEdit = Boolean(id);
 
   const [titre, setTitre] = useState("");
-  const [auteur, setAuteur] = useState("");
+  const [description, setDescription] = useState("");
   const [ville, setVille] = useState("");
 
-  // 🔁 Charger les données si on édite
   useEffect(() => {
     if (!isEdit) return;
 
     api.get(`/oeuvres/${id}`).then((res) => {
-      const { titre, auteur, ville } = res.data;
+      const { titre, description, ville } = res.data;
       setTitre(titre);
-      setAuteur(auteur);
+      setDescription(description);
       setVille(ville);
     });
-  }, [id, isEdit]); // ✅ Ajout de isEdit dans les dépendances
+  }, [id, isEdit]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const payload = { titre, auteur, ville };
+    const payload = { titre, description, ville };
 
     try {
       if (isEdit) {
@@ -36,7 +35,7 @@ export default function OeuvreForm() {
       }
       navigate("/oeuvres");
     } catch (error) {
-      console.error("Erreur lors de la sauvegarde", error);
+      console.error("Erreur lors de la sauvegarde :", error);
     }
   };
 
@@ -47,27 +46,33 @@ export default function OeuvreForm() {
         <label>
           Titre
           <input
+            type="text"
             value={titre}
             onChange={(e) => setTitre(e.target.value)}
             required
           />
         </label>
+
         <label>
-          Auteur
-          <input
-            value={auteur}
-            onChange={(e) => setAuteur(e.target.value)}
+          Description
+          <textarea
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
             required
+            rows={5}
           />
         </label>
+
         <label>
           Ville
           <input
+            type="text"
             value={ville}
             onChange={(e) => setVille(e.target.value)}
             required
           />
         </label>
+
         <button type="submit">{isEdit ? "Mettre à jour" : "Ajouter"}</button>
       </form>
     </main>
