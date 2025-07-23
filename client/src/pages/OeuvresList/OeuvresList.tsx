@@ -6,7 +6,7 @@ import "./OeuvresList.css";
 type Oeuvre = {
   id: number;
   titre: string;
-  auteur: string;
+  description: string;
   ville: string;
 };
 
@@ -39,7 +39,7 @@ export default function OeuvresList() {
         <thead>
           <tr>
             <th>Titre</th>
-            <th>Auteur</th>
+            <th>Description</th>
             <th>Ville</th>
             <th>Actions</th>
           </tr>
@@ -48,7 +48,7 @@ export default function OeuvresList() {
           {oeuvres.map((oeuvre) => (
             <tr key={oeuvre.id}>
               <td>{oeuvre.titre}</td>
-              <td>{oeuvre.auteur}</td>
+              <td>{oeuvre.description}</td>
               <td>{oeuvre.ville}</td>
               <td>
                 <button

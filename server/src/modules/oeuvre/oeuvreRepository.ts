@@ -1,4 +1,3 @@
-// server/src/modules/oeuvre/oeuvreRepository.ts
 import type { Result, Rows } from "../../../database/client";
 import databaseClient from "../../../database/client";
 
@@ -18,18 +17,18 @@ class OeuvreRepository {
     return rows[0];
   }
 
-  async create(titre: string, auteur: string, ville: string) {
+  async create(titre: string, description: string, ville: string) {
     const [result] = await databaseClient.query<Result>(
-      "INSERT INTO oeuvre (titre, auteur, ville) VALUES (?, ?, ?)",
-      [titre, auteur, ville],
+      "INSERT INTO oeuvre (titre, description, ville) VALUES (?, ?, ?)",
+      [titre, description, ville],
     );
     return result.insertId;
   }
 
-  async update(id: number, titre: string, auteur: string, ville: string) {
+  async update(id: number, titre: string, description: string, ville: string) {
     const [result] = await databaseClient.query<Result>(
-      "UPDATE oeuvre SET titre = ?, auteur = ?, ville = ? WHERE id = ? AND is_deleted = FALSE",
-      [titre, auteur, ville, id],
+      "UPDATE oeuvre SET titre = ?, description = ?, ville = ? WHERE id = ? AND is_deleted = FALSE",
+      [titre, description, ville, id],
     );
     return result.affectedRows;
   }

@@ -6,7 +6,7 @@ import "./OeuvreDetail.css";
 type Oeuvre = {
   id: number;
   titre: string;
-  auteur: string;
+  description: string;
   ville: string;
 };
 
@@ -44,9 +44,8 @@ export default function OeuvreDetail() {
   return (
     <main className="oeuvre-detail">
       <h1>{oeuvre.titre}</h1>
-      <p>Auteur : {oeuvre.auteur}</p>
+      <p>Description : {oeuvre.description}</p>
       <p>Ville : {oeuvre.ville}</p>
-      <p>Description de l’œuvre (exemple)</p>
 
       <button type="button" onClick={handleEdit}>
         Modifier
