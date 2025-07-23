@@ -53,8 +53,6 @@ export default function OeuvreDetail() {
       <button type="button" onClick={handleDelete}>
         Supprimer
       </button>
-
-      
     </main>
   );
 }
