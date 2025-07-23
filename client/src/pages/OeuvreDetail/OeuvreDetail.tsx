@@ -54,7 +54,7 @@ export default function OeuvreDetail() {
         Supprimer
       </button>
 
-      <footer>© 2025 Cheikh Ahmadou Bamba</footer>
+      
     </main>
   );
 }
