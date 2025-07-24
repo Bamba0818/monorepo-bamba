@@ -1,31 +1,38 @@
 .oeuvre-detail {
-  padding: 2rem;
   background-color: #fef6e5;
   min-height: 100vh;
-  color: #25445b;
+  padding: 2rem;
   font-family: sans-serif;
+  color: #25445b;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 .oeuvre-detail h1 {
   font-size: 2rem;
   margin-bottom: 1rem;
+  color: #25445b;
 }
 
 .oeuvre-detail p {
   font-size: 1.1rem;
-  margin-bottom: 0.5rem;
+  margin: 0.5rem 0;
+  max-width: 600px;
 }
 
 .oeuvre-detail button {
-  padding: 0.5rem 1rem;
+  margin: 1rem 0.5rem;
+  padding: 0.6rem 1.2rem;
   font-size: 1rem;
   background-color: #25445b;
   color: white;
   border: none;
   border-radius: 6px;
   cursor: pointer;
-  margin-right: 1rem;
-  margin-top: 1rem;
   transition: background-color 0.2s ease;
 }
 
@@ -34,7 +41,7 @@
 }
 
 .oeuvre-detail footer {
-  margin-top: 3rem;
+  margin-top: 2rem;
   font-size: 0.9rem;
-  color: #888;
+  color: #666;
 }
