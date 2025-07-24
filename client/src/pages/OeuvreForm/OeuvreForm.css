@@ -4,11 +4,19 @@
   min-height: 100vh;
   color: #25445b;
   font-family: sans-serif;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .oeuvre-form h1 {
   font-size: 2rem;
   margin-bottom: 1.5rem;
+  text-align: center;
+  color: #25445b;
+  word-break: break-word;
 }
 
 .oeuvre-form form {
@@ -16,6 +24,7 @@
   flex-direction: column;
   gap: 1rem;
   max-width: 500px;
+  width: 100%;
 }
 
 .oeuvre-form label {
@@ -42,6 +51,7 @@
   border-radius: 6px;
   cursor: pointer;
   transition: background-color 0.2s ease;
+  align-self: center;
 }
 
 .oeuvre-form button:hover {
