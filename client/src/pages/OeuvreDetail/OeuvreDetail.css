@@ -38,6 +38,7 @@
 
 .oeuvre-detail button:hover {
   background-color: #1a3342;
+  transform: scale(1.05);
 }
 
 .oeuvre-detail footer {

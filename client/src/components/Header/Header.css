@@ -8,19 +8,36 @@
 }
 
 .header__logo img {
-  height: 40px; /* ajuste ici la taille du logo */
+  height: 60px;
   width: auto;
   display: block;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  cursor: pointer;
+}
+
+.header__logo img:hover {
+  transform: scale(1.05);
+  opacity: 0.85;
 }
 
 .header__nav {
   display: flex;
-  gap: 1.5rem;
+  gap: 1rem;
 }
 
 .header__link {
   text-decoration: none;
-  color: rgba(37, 68, 91, 1);
+  color: white;
   font-weight: bold;
   font-size: 1rem;
+  background-color: rgba(37, 68, 91, 1);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.header__link:hover {
+  background-color: #1a3342;
+  transform: scale(1.05);
 }
