@@ -19,10 +19,13 @@
   padding: 0.5rem 1rem;
   border-radius: 6px;
   text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .oeuvres-list a:hover {
   background-color: #1a3342;
+  transform: scale(1.05);
 }
 
 .oeuvres-list table {
@@ -52,8 +55,11 @@
   border: none;
   border-radius: 6px;
   cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .oeuvres-list button:hover {
   background-color: #1a3342;
+  transform: scale(1.05);
 }

@@ -50,10 +50,14 @@
   border: none;
   border-radius: 6px;
   cursor: pointer;
-  transition: background-color 0.2s ease;
   align-self: center;
+
+  /* Animation */
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .oeuvre-form button:hover {
   background-color: #1a3342;
+  transform: scale(1.05);
 }
